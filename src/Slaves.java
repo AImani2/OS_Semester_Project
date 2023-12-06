@@ -13,12 +13,31 @@ public class Slaves {
     // 2 back ends
     // as master gets new job, check which time until free is shorter
 
-    public class SlaveA
+    public class SlaveA extends Thread
     {
         // variables timeUntilFree
-        // TIME A = 2
-        // TIME B = 10
+        final int timeA = 2;
+        final int timeB = 10;
         // doJobA() sleep(2) timeUntilFree -= 2
+
+        public void doJobA()
+        {
+            Thread jobA = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        Thread.sleep(2000);
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                        }
+                    }
+
+
+            });
+            jobA.run();
+            //Thread.sleep(2000);
+        }
+
 
         ServerSocket serverSocket = new ServerSocket(8080);
 
