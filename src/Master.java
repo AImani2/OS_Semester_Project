@@ -1,6 +1,7 @@
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
 import java.util.Stack;
 
 public class Master {
@@ -31,6 +32,9 @@ public class Master {
 
             int counterA = 0;
             int counterB = 0;
+
+            ArrayList<Integer> jobsList = new ArrayList<>();
+
 
             for (int i = 0; i < jobsList.length; i++)
             {

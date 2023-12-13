@@ -32,14 +32,11 @@ public class Client {
             // Type A = 0
             // Type B = 1
 
-            ArrayList<Integer> jobsList = new ArrayList<>();
 
             for (int i = 0; i <= 15; i++) // need to find out how many jobs are sent
             {
                 Random random = new Random();
                 int jobType = random.nextInt(0, 2);
-
-                jobsList.add(jobType);
             }
             // send this list over to the master
 

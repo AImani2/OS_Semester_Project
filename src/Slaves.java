@@ -31,8 +31,6 @@ public class Slaves {
                         throw new RuntimeException(e);
                         }
                     }
-
-
             });
             jobA.run();
             //Thread.sleep(2000);
