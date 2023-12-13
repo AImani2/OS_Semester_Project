@@ -13,7 +13,7 @@ public class Client {
     public Client() throws IOException {
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         /* Client class - send jobs of type a or type b
     Create a method that accepts list of jobs from the user - and then sends to master main method in client class.
     Connection with master class. */
