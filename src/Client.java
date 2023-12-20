@@ -36,11 +36,13 @@ public class Client {
 
             // send this list (jobList) over to the master - using reader/ writer
 
-            /*BufferedReader responseReader = // stream to read text response from server
+            BufferedReader responseReader = // stream to read text response from server
                     new BufferedReader(
                             new InputStreamReader(clientSocket.getInputStream()));
             PrintWriter requestWriter = // stream to write text requests to server
-                    new PrintWriter(clientSocket.getOutputStream(), true);*/
+                    new PrintWriter(clientSocket.getOutputStream(), true);
+
+            requestWriter.println(jobList); // send array to master
 
         }
 
