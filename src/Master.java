@@ -12,9 +12,15 @@ public class Master {
 
     public static void main(String[] args) throws IOException {
         ServerSocket serverSocket = new ServerSocket(8080); // connection with client
+        System.out.println("Waiting for connection to Client");
+
+        // connect it to client socket
+        Socket connectToClientSocket = serverSocket.accept();
+        System.out.println("Connection to Client established");
+        System.out.println();
+
         while (true)
         {
-            Socket socket = serverSocket.accept();
 
             /* Master class: store in a stack and peek then make a condition - if a lot more of its own type
             Create a count of jobs
@@ -33,11 +39,15 @@ public class Master {
             int counterA = 0;
             int counterB = 0;
 
-            ArrayList<Integer> jobsList = new ArrayList<>();
+            //ArrayList<Integer> jobsList = get the jobList from Client using the reader (whatever you Google)
+            // index can be the jobs IDs
 
 
-            for (int i = 0; i < jobsList.length; i++)
+            /*for (int i = 0; i < jobsList.length; i++)
             {
+            //For each job, see which type slave it is
+            //if that slave is busy, send to other type for 10 seconds
+            //if that slave is not busy, send to own slave for 2
                 if (jobsList(i) == 0)
                 {
 
@@ -50,7 +60,9 @@ public class Master {
                     counterB++;
                 }
 
-            }
+            }*/
+
+            // send to client when job completes
 
 
         }

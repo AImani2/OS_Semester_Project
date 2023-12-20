@@ -27,6 +27,7 @@ public class Slaves {
                 public void run() {
                     try {
                         Thread.sleep(2000);
+                        // depends which job type it's doing gonna sleep for different amounts of time
                     } catch (InterruptedException e) {
                         throw new RuntimeException(e);
                         }
@@ -34,6 +35,8 @@ public class Slaves {
             });
             jobA.run();
             //Thread.sleep(2000);
+
+            // send to master that job complete
         }
 
 

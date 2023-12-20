@@ -1,7 +1,4 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
+import java.io.*;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Random;
@@ -22,23 +19,28 @@ public class Client {
         try
         {
             Socket clientSocket = new Socket("localhost", 8080); // connection with master
-            BufferedReader responseReader = // stream to read text response from server
-                    new BufferedReader(
-                            new InputStreamReader(clientSocket.getInputStream()));
-            PrintWriter requestWriter = // stream to write text requests to server
-                    new PrintWriter(clientSocket.getOutputStream(), true);
 
 
             // Type A = 0
             // Type B = 1
 
 
+            ArrayList<Integer> jobList = new ArrayList<>();
+
             for (int i = 0; i <= 15; i++) // need to find out how many jobs are sent
             {
                 Random random = new Random();
                 int jobType = random.nextInt(0, 2);
+                jobList.add(jobType);
             }
-            // send this list over to the master
+
+            // send this list (jobList) over to the master - using reader/ writer
+
+            /*BufferedReader responseReader = // stream to read text response from server
+                    new BufferedReader(
+                            new InputStreamReader(clientSocket.getInputStream()));
+            PrintWriter requestWriter = // stream to write text requests to server
+                    new PrintWriter(clientSocket.getOutputStream(), true);*/
 
         }
 
