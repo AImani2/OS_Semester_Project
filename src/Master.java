@@ -35,8 +35,12 @@ public class Master {
             int counterA = 0;
             int counterB = 0;
 
-            //ArrayList<Integer> jobsList = get the jobList from Client using the reader (whatever you Google)
-            responseReader.readLine(jobList());
+            // ArrayList<Integer> jobsList get the jobList from Client using the reader (whatever you Google)
+            BufferedReader responseReader = // stream to read text response from server
+                    new BufferedReader(
+                            new InputStreamReader(connectToClientSocket.getInputStream()));
+            String jobs = responseReader.readLine();
+            String [] jobList = jobs.split("");
             // index can be the jobs IDs
 
 
@@ -45,7 +49,7 @@ public class Master {
             //For each job, see which type it is
             //if that slave is busy, send to other type for 10 seconds
             //if that slave is not busy, send to own slave for 2
-                if (jobList(i) == 0) // type A
+                if (jobList[i].equals("0")) // type A
                 {
                     if (counterA + 2 <= counterB + 10)
                     {
@@ -59,7 +63,7 @@ public class Master {
                     }
 
                 }
-                else if (jobList(i) == 1) // type B
+                else if (jobList[i].equals("1")) // type B
                 {
                     if (counterB + 2 <= counterA + 10)
                     {
